@@ -2,6 +2,22 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
   <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+  
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,6 +60,21 @@
             background-color: #dc3545;
         }
     </style>
+    
+    
+    
+    
+    
+     <script>
+        function confirmDelete(itemNo) {
+            var result = alert("Item with ID " + itemNo + " has been successfully deleted.");
+            if (result) {
+                alert("Item with ID " + itemNo + " has been successfully deleted.");
+                // You can also submit the form to your delete servlet here if needed.
+            }
+        }
+        </script>
+    
 </head>
 <body>
     <h1>Item List</h1>
@@ -72,8 +103,16 @@
                     	<c:param name="qty" value="${item.itemQuantity}"/>
                     </c:url>
                     
+                    
+                    
                     <a href="${itemUpdate}"><button class="action-button">Edit</button> </a>
-                    <button class="action-button delete">Delete</button>
+                    
+                    <form action = "/StockManagement/deleteItemSvlet" method = "post">
+                     <input type="hidden" name="itemNo" value="${item.itemNo}" />
+
+                    <button  class="action-button delete" onclick="confirmDelete(${item.itemNo})">Delete</button>
+                    
+                    </form>
                 </td>
             </tr>
         </c:forEach>

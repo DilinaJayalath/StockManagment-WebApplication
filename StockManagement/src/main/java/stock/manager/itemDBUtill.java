@@ -100,10 +100,7 @@ public class itemDBUtill {
 			       
 			        itemList.add(item);
 			    }
-			
-			
-			
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -139,8 +136,36 @@ public class itemDBUtill {
 		}
 		return isSuccess;
 
+						
+	}
+	
+	
+	
+	
+	public static boolean deleteItem( int itemNo ) {
+
+		boolean isSuccess = false;
+		
+		try {
+		con = DBConnect.getCon();
+		stmt = con.createStatement();
+
+		String sql = "DELETE FROM stock.items WHERE itemNo = '"+itemNo+"' ";
+
+		int ret = stmt.executeUpdate(sql);
+		
+		if (ret > 0) {
+			isSuccess = true;
+		}else {
+			isSuccess = false;
+		}
 		
 		
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return isSuccess;
 		
 	}
 	

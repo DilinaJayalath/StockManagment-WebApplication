@@ -34,6 +34,19 @@ version="3.1">
 	<url-pattern>/allitems</url-pattern>	
 </servlet-mapping>
 
+
+
+
+ <servlet>
+	<servlet-name>delete</servlet-name>
+	<servlet-class>stock.manager.deleteItemSvlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>delete</servlet-name>
+	<url-pattern>/delete</url-pattern>	
+</servlet-mapping>
+
 <!--
 
 

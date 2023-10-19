@@ -9,11 +9,29 @@
 <body>
 
 
-<h1>show Item Table</h1>
 
- <form action="allitems" method="post">
-        <button type="submit">Show Item Table</button>
-    </form>
+
+
+<script type="text/javascript">
+    window.onload = function() {
+        // Define the URL of the servlet you want to redirect to
+        var servletUrl = "allitems"; // Replace with your servlet mapping
+
+        // Create a hidden form element
+        var form = document.createElement("form");
+        form.setAttribute("method", "post");
+        form.setAttribute("action", servletUrl);
+        document.body.appendChild(form);
+
+        // Submit the form
+        form.submit();
+    };
+</script>
+
+
+
+
+
 
 
 </body>

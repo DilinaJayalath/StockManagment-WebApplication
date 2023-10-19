@@ -121,10 +121,6 @@ h1 {
 
 
 
- <form action="allitems" method="post">
-        <button type="submit">Show Item Table</button>
-    </form>
-
 
 
 </body>

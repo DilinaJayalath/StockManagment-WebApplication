@@ -47,7 +47,7 @@ public class addItemServlet extends HttpServlet {
 
 				if (res == true) {
 					request.setAttribute("res", res);
-					RequestDispatcher dis1 = request.getRequestDispatcher("afterReg.jsp");
+					RequestDispatcher dis1 = request.getRequestDispatcher("Itemdetails.jsp");
 					dis1.forward(request, response);
 
 				} else {
