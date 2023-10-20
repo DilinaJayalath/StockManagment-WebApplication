@@ -1,90 +1,131 @@
-
-
-
-
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Edit Item</title>
+    <title>Stock Management</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-          
-            min-height: 100vh;
         }
-        form {
-            background: #fff;
-            padding: 50px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .container {
+            margin: 50px 50px;
         }
         h1 {
-            text-align: center;
+            font-size: 24px;
             color: #333;
+            text-align: center;
+            margin-bottom: 20px;
         }
-        label {
-            display: block;
-            margin: 10px 0;
+        .table-container {
+            max-width: 80%;
+            margin: 0 auto;
         }
-        input[type="number"],
-        input[type="text"] {
+        .table {
+            border-collapse: collapse;
             width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            background-color: #fff;
         }
-        input[type="submit"] {
+        .table th, .table td {
+            text-align: center;
+            vertical-align: middle;
+        }
+        .table th {
+            background-color:  rgb(0, 81, 119);
+            color: #fff;
+        }
+        .table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .table tbody tr:hover {
+            background-color: #d9d9d9;
+        }
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+        }
+        .action-button {
+            margin: 5px;
+            padding: 5px 10px;
+            text-align: center;
             background-color: #007bff;
             color: #fff;
             border: none;
-            padding: 10px 20px;
             cursor: pointer;
-            border-radius: 5px;
         }
-        input[type="submit"]:hover {
-            background-color: #0056b3;
+        .action-button.delete {
+            background-color: #dc3545;
+        }
+        .modal-content {
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .modal-header {
+            background-color: #007bff;
+            color: #fff;
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Stock Details</h1>
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Item ID</th>
+                        <th>Item Name</th>
+                        <th>Item Code</th>
+                        <th>Item Quantity</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="item" items="${itemList}">
+                        <tr>
+                            <td>${item.itemNo}</td>
+                            <td>${item.itemName}</td>
+                            <td>${item.itemCode}</td>
+                            <td>${item.itemQuantity}</td>
+                            <td class="actions">
+                                <a href="itemUpdate.jsp?num=${item.itemNo}&name=${item.itemName}&code=${item.itemCode}&qty=${item.itemQuantity}" class="action-button">Edit</a>
+                                <button class="action-button delete" data-toggle="modal" data-target="#deleteModal${item.itemNo}">Delete</button>
+                                <!-- Delete Modal -->
+                                <div class="modal fade" id="deleteModal${item.itemNo}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Are you sure you want to delete this item?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                <form action="/StockManagement/deleteItemSvlet" method="post">
+                                                    <input type="hidden" name="itemNo" value="${item.itemNo}" />
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-
-
-
-<%
-
-	int no = Integer.parseInt(request.getParameter("num"));
-	String name = request.getParameter("name");
-	String code = request.getParameter("code");
-	int qty = Integer.parseInt(request.getParameter("qty"));
-
-%>
-
-
-
-
-
-
-
-    <form action="updateItemServlet" method="post">
-        <h1>Edit Item</h1>
-        <input type="number" name="itemId" value="<%= no%>" readonly >
-        <label for="itemName">Item Name:</label>
-        <input type="text" name="itemName" value="<%= name%>">
-        <label for="itemCode">Item Code:</label>
-        <input type="text" name="itemCode" value="<%= code%>">
-        <label for="itemQuantity">Item Quantity:</label>
-        <input type="number" name="itemQuantity" value="<%= qty%>">
-        <input type="submit" value="Update">
-    </form>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
 </body>
-</html>

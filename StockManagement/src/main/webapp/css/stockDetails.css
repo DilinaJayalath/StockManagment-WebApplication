@@ -21,7 +21,7 @@
 .logo-text1{
 	margin-top:10px;
 	font-family:candara;
-	color: #1c7a4d;
+	color:rgb(0, 81, 119);
 	font-size:40px;
 	text-align:center;
 	
@@ -46,7 +46,7 @@
   background-color: #660066;
 }
 .signup {
-  background-color: #2a9662; /* Light Purple */
+  background-color: rgb(72, 72, 72); /* Light Purple */
 }
 
 
@@ -64,7 +64,7 @@
 .horizontal_line{
 	margin: 0 auto;
 	height: 3px;
-	background-color: #2a9662;
+	background-color: rgb(250, 162, 29);
 }
 
 .header{
@@ -84,7 +84,7 @@
 }
 
 .header li a:hover{
-	color:#a1cab6;
+	color:rgb(115, 115, 115);
 	
 }
 
@@ -110,13 +110,13 @@
     }
 
 .tdmain {
-    background-color: #12814c;
+    background-color: rgb(192, 192, 192);
   }
 
 .dashboad_btn
 {
   color: #fff;
-  background-color: #2a9662;
+  background-color: rgb(72, 72, 72);
   border: solid;
   padding: 10px 20px;
   cursor: pointer;

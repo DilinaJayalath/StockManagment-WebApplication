@@ -25,7 +25,7 @@ public class updateItemServlet extends HttpServlet {
 		
 		
 		if(res == true){
-			request.getRequestDispatcher("Itemdetails.jsp").forward(request, response);
+			request.getRequestDispatcher("itemTableBtn.jsp").forward(request, response);
 		}else {
 			 request.getRequestDispatcher("fileHave.jsp").forward(request, response);
 		}

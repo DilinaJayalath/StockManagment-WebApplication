@@ -19,7 +19,7 @@ public class itemsListServlet extends HttpServlet {
 		List<Items> ItemsList = itemDBUtill.returnAllData();
 		
         request.setAttribute("itemList", ItemsList);
-        request.getRequestDispatcher("ItemsList.jsp").forward(request, response);
+        request.getRequestDispatcher("itemTable.jsp").forward(request, response);
     
 
 	}

@@ -14,10 +14,10 @@
 <table>
 <tr>
 <td class="logo1">
-	<image src="src/logo.png" class ="logo">
+	<image src="css/logo.png" class ="logo">
 </td>
 <td  class="logo2">	
-	<h1 class="logo-text1">Stock Detials</h1>
+	<h1 class="logo-text1">Stock Manager Dashboard </h1>
 	<h4 class = "logo-text2">--Stock Management Website--</h4>
 </td>
 
@@ -47,28 +47,28 @@
 	 <hr class="horizontal_line">
 	 
 	
-		<ul class="header">
+<!-- 		<ul class="header">
 			<li><a href = "#"><b>HOME</b></a></li>
 			<li><a href = "#"><b>ABOUT US</b></a></li>
 			<li><a href = "#"><b>NEWS</b></a></li>
 			<li><a href = "#"><b>CONTACT US</b></a></li>
 		</ul>
     
-
+ -->
 <table  class="fulltable">
   <tr>
-    <td class="tdmain" style="width:20%; height:40px;" ><center><br><a href="AddItem.jsp" target="iframe_a"><button class="dashboad_btn">Add New Item</button></a></center><br></td>
+    <td class="tdmain" style="width:20%; height:100px;" ><center><br><a href="addItem.jsp" target="iframe_a"><button class="dashboad_btn">Add New Item</button></a></center><br></td>
     <td class="trr" rowspan ="6" style="width:80%;">
-      <iframe src="src/logo.png" name="iframe_a" height="500px" width="100%" title="Iframe Example"></iframe>
+      <iframe src="itemTableBtn.jsp" name="iframe_a" height="450px" width="100%" title="Iframe Example"></iframe>
     </td>
   </tr>
   <tr>
-      <td class="tdmain" style="width:20%; height:40px;"><center><br><a href="Itemdetails.jsp" target="iframe_a"><button class="dashboad_btn">Update stock Details</button></a></center><br></td>
+      <td class="tdmain" style="width:20%; height:40px;"><center><br><a href="itemTableBtn.jsp" target="iframe_a"><button class="dashboad_btn">Update stock Details</button></a></center><br></td>
       <td class="trr" rowspan="2" style="width:80%;">
-          <iframe src="src/logo.png" name="iframe_a" height="200px" width="100%" title="Iframe Example"></iframe>
+          <iframe src="src/logo.png" name="iframe_a" height="20px" width="100%" title="Iframe Example"></iframe>
   </tr>
    <tr>
-    <td class="tdmain" style="width:20%;"><center><br><a href="#" target="iframe_a"><button class="dashboad_btn">&nbsp;&nbsp;&nbsp;&nbsp;Approve Lands&nbsp;&nbsp;&nbsp;&nbsp;</button></a></center><br></td>
+    <td class="tdmain" style="width:20%;"><center><br><a href="#" target="iframe_a"><button class="dashboad_btn">&nbsp;&nbsp;&nbsp;&nbsp;Approve &nbsp;&nbsp;&nbsp;&nbsp;</button></a></center><br></td>
   </tr>
   <tr><td><p style="font-size: 50px; color:white;"></p></td></tr>
   <tr><td><p style="font-size: 60px; color:white;"></p></td></tr>

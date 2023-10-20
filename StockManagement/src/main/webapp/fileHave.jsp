@@ -10,7 +10,7 @@
 
 <h1> File Is Already have</h1>
 
-<a href="AddItem.jsp"><button> OK </button></a>
+<a href="addItem.jsp"><button> OK </button></a>
 
 </body>
 </html>
