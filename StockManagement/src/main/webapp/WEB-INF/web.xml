@@ -47,20 +47,27 @@ version="3.1">
 	<url-pattern>/delete</url-pattern>	
 </servlet-mapping>
 
-<!--
-
-
-<servlet>
-	<servlet-name>logout</servlet-name>
-	<servlet-class>com.customer.logoutServlet</servlet-class>
+ <servlet>
+	<servlet-name>reg</servlet-name>
+	<servlet-class>customer.regServlet</servlet-class>
 </servlet>
 
 <servlet-mapping>
-	<servlet-name>logout</servlet-name>
-	<url-pattern>/logout</url-pattern>	
+	<servlet-name>reg</servlet-name>
+	<url-pattern>/reg</url-pattern>	
 </servlet-mapping>
-
- -->
+ 
+ 
+      
+	<servlet>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>customer.loginServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+			<servlet-name>Login</servlet-name>
+		<url-pattern>/log</url-pattern>
+	</servlet-mapping>
 
 </web-app>
 

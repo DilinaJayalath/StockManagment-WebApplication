@@ -21,7 +21,7 @@ public class itemDBUtill {
 			con = DBConnect.getCon();
 			stmt = con.createStatement();
 
-			String sql = "insert into stock.items values(0, '" + itemName + "' , '" + itemCode+ "' , " + itemQuantity + ")";
+			String sql = "insert into items values(0, '" + itemName + "' , '" + itemCode+ "' , " + itemQuantity + ")";
 
 			int ret = stmt.executeUpdate(sql);
 
@@ -50,7 +50,7 @@ public class itemDBUtill {
 			con = DBConnect.getCon();
 			stmt = con.createStatement();
 			
-			String sql = "select * from stock.items where itemCode = '"+itemCd+"'";
+			String sql = "select * from items where itemCode = '"+itemCd+"'";
 			
 			re = stmt.executeQuery(sql);
 			
@@ -88,7 +88,7 @@ public class itemDBUtill {
 			con = DBConnect.getCon();
 			stmt = con.createStatement();
 			
-			String sql = "select * from stock.items ";
+			String sql = "select * from items ";
 			
 			re = stmt.executeQuery(sql);
 			
@@ -119,7 +119,7 @@ public class itemDBUtill {
 			con = DBConnect.getCon();
 			stmt = con.createStatement();
 
-			String sql = "update stock.items set itemName = '"+itemName+"' , itemCode = '"+itemCode+"', itemQuantity = '"+itemQuantity+"' where itemNo = "+itmno+" ";
+			String sql = "update items set itemName = '"+itemName+"' , itemCode = '"+itemCode+"', itemQuantity = '"+itemQuantity+"' where itemNo = "+itmno+" ";
  
 			int ret = stmt.executeUpdate(sql);
 			
@@ -150,7 +150,7 @@ public class itemDBUtill {
 		con = DBConnect.getCon();
 		stmt = con.createStatement();
 
-		String sql = "DELETE FROM stock.items WHERE itemNo = '"+itemNo+"' ";
+		String sql = "DELETE FROM items WHERE itemNo = '"+itemNo+"' ";
 
 		int ret = stmt.executeUpdate(sql);
 		
