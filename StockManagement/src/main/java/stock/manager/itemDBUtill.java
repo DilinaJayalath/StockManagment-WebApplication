@@ -13,7 +13,7 @@ public class itemDBUtill {
 	static Statement stmt = null;
 	static ResultSet re = null;
 
-	public static boolean addItem( String itemName, String itemCode, int itemQuantity) {
+	public static boolean addItem( String itemName, String itemCode, int itemQuantity , String fileName) {
 		
 		boolean isSuccess = false;
 		try {
@@ -21,7 +21,7 @@ public class itemDBUtill {
 			con = DBConnect.getCon();
 			stmt = con.createStatement();
 
-			String sql = "insert into items values(0, '" + itemName + "' , '" + itemCode+ "' , " + itemQuantity + ")";
+			String sql = "insert into items values(0, '" + itemName + "' , '" + itemCode+ "' , " + itemQuantity + " , '"+fileName+"')";
 
 			int ret = stmt.executeUpdate(sql);
 
@@ -60,8 +60,9 @@ public class itemDBUtill {
 				String itemName = re.getString(2);
 				String itemCode = re.getString(3);
 				int itemQuantity = re.getInt(4);
+				String itemPhoto = re.getString(3);
 					
-				Items it = new Items(itemNo , itemName , itemCode , itemQuantity);
+				Items it = new Items(itemNo , itemName , itemCode , itemQuantity , itemPhoto);
 				
 				itm.add(it);
 								
@@ -93,9 +94,8 @@ public class itemDBUtill {
 			re = stmt.executeQuery(sql);
 			
 			
-			
 			 while (re.next()) {
-			        Items item = new Items( re.getInt("itemNo") , re.getString("itemName") , re.getString("itemCode"), re.getInt("itemQuantity"));
+			        Items item = new Items( re.getInt("itemNo") , re.getString("itemName") , re.getString("itemCode"), re.getInt("itemQuantity"),re.getString("itemPhoto"));
 			        
 			       
 			        itemList.add(item);
@@ -111,7 +111,7 @@ public class itemDBUtill {
 	}
 	
 	
-	public static boolean updateItems(int itmno , String itemName, String itemCode, int itemQuantity) {
+	public static boolean updateItems(int itmno , String itemName, String itemCode, int itemQuantity ,String itemPhoto ) {
 		
 		boolean isSuccess = false;
 		
@@ -119,7 +119,7 @@ public class itemDBUtill {
 			con = DBConnect.getCon();
 			stmt = con.createStatement();
 
-			String sql = "update items set itemName = '"+itemName+"' , itemCode = '"+itemCode+"', itemQuantity = '"+itemQuantity+"' where itemNo = "+itmno+" ";
+			String sql = "update items set itemName = '"+itemName+"' , itemCode = '"+itemCode+"', itemQuantity = '"+itemQuantity+"' , itemPhoto='"+itemPhoto+"' where itemNo = "+itmno+" ";
  
 			int ret = stmt.executeUpdate(sql);
 			

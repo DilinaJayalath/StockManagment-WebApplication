@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,9 +70,10 @@
     String name = request.getParameter("name");
     String code = request.getParameter("code");
     int qty = Integer.parseInt(request.getParameter("qty"));
+    String photo = request.getParameter("photo");
 %>
 
-<form action="updateItemServlet" method="post">
+<form action="/StockManagement/updateItemServlet" method="post" enctype="multipart/form-data">
     <h1>Edit Item</h1>
     <input type="number" name="itemId" value="<%= no%>" readonly>
     <label for="itemName">Item Name:</label>
@@ -80,9 +82,36 @@
     <input type="text" name="itemCode" value="<%= code%>" required>
     <label for="itemQuantity">Item Quantity:</label>
     <input type="number" name="itemQuantity" value="<%= qty%>" required>
+    
+    
+    <div class="form-group">
+                <label for="itemPhoto">Item Photo</label>
+                <input type="file" name="itemPhoto" id="itemPhotoInput" accept="image/*">
+                <img id="itemPhotoPreview" src="images/<%= photo %>" alt="Default Image" style="max-width: 200px;">
+            </div>
+            <input type="hidden" name="hiddenField" value="<%= photo %>">
+
     <button type="button" class="btn btn-cancel" data-toggle="modal" data-target="#cancelModal">Cancel</button>
     <button type="submit" class="btn btn-update" data-toggle="modal" data-target="#cancelModal">Update</button>
 </form>
+
+
+	<script>
+		// JavaScript to update the image when a file is selected
+		const itemPhotoInput = document.getElementById('itemPhotoInput');
+		const itemPhotoPreview = document.getElementById('itemPhotoPreview');
+
+		itemPhotoInput.addEventListener('change', function() {
+			if (itemPhotoInput.files && itemPhotoInput.files[0]) {
+				const reader = new FileReader();
+				reader.onload = function(e) {
+					itemPhotoPreview.src = e.target.result;
+				};
+				reader.readAsDataURL(itemPhotoInput.files[0]);
+			}
+		});
+    
+		</script>
 
 <!-- Cancel Modal -->
 <div class="modal fade" id="cancelModal" tabindex="-1" role="dialog" aria-labelledby="cancelModalLabel" aria-hidden="true">

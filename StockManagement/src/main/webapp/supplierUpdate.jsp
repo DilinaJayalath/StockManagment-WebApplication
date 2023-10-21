@@ -109,6 +109,7 @@ input[type="number"], input[type="text"] {
 </head>
 <body>
 	<%
+	 int no = Integer.parseInt(request.getParameter("no"));
 	String name = request.getParameter("name");
 	String email = request.getParameter("email");
 	String phone = request.getParameter("phone");
@@ -128,17 +129,19 @@ input[type="number"], input[type="text"] {
 
 		<div class="main-content">
 
-			<form action="updateItemServlet" method="post">
+			<form action="/StockManagement/supplierUpdateServlet" method="post">
 
 
-				<label for="itemName">Supplier Name:</label> <input type="text"
-					name="itemName" value="<%=name%>" required> <label
-					for="itemCode">Supplier Email:</label> <input type="text"
-					name="itemCode" value="<%=email%>" required> <label
-					for="itemQuantity">Supplier Phone:</label> <input type="number"
-					name="itemQuantity" value="<%=phone%>" required> <label
-					for="itemQuantity">Supplier categories:</label> <input type="text"
-					name="itemQuantity" value="<%=categories%>" required>
+					<label for="itemName">Supplier ID:</label> 
+					<input type="text"name="spNo" value="<%=no%>" readonly> 
+					<label for="itemName">Supplier Name:</label> 
+					<input type="text"name="spName" value="<%=name%>" required> 
+					<label for="itemCode">Supplier Email:</label> 
+					<input type="text"name="spEmail" value="<%=email%>" required> 
+					<labelfor="itemQuantity">Supplier Phone:</label> 
+					<input type="number" name="spPhone" value="<%=phone%>" required> 
+					<label for="itemQuantity">Supplier categories:</label> 
+					<input type="text" name=spCategories value="<%=categories%>" required>
 
 
 				<button type="button" class="btn btn-cancel" data-toggle="modal"

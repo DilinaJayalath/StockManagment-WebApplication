@@ -1,21 +1,30 @@
 package stock.manager;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 @WebServlet("/addItemServlet")
+@MultipartConfig(fileSizeThreshold = 1024 * 1024,    // 1MB
+maxFileSize = 1024 * 1024 * 10,  // 10MB
+maxRequestSize = 1024 * 1024 * 50)  // 50MB
+
 public class addItemServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		
 
 		// int itemNo = Integer.parseInt(request.getParameter("itemNo"));
 
@@ -23,7 +32,23 @@ public class addItemServlet extends HttpServlet {
 
 			String itemName = request.getParameter("itemName");
 			String itemCode = request.getParameter("itemCode");
+			
+			
+			System.out.println(itemName+itemCode);
 			int itemQuantity = Integer.parseInt(request.getParameter("itemQuantity"));
+			
+			Part part = request.getPart("itemPhoto");
+			
+			
+	        String fileName = extractFileName(part);
+	        String savePath = "C:\\Users\\D I L I N A\\Desktop\\Repo\\StockManagement\\src\\main\\webapp\\images" + File.separator + fileName;
+	        File fileSaveDir = new File(savePath);
+	        
+	        part.write(savePath + File.separator);
+	        
+	        System.out.println("savePath: " + savePath);
+	        System.out.println("fileName: " + fileName);
+	        System.out.println("File saved successfully: " + fileSaveDir.exists());
 			
 			if(itemName.isEmpty() || itemCode.isBlank() || itemQuantity == 0 ) {
 				request.setAttribute("res", false);
@@ -42,7 +67,7 @@ public class addItemServlet extends HttpServlet {
 
 			if (itemDetails.isEmpty()) {
 
-				boolean res = itemDBUtill.addItem(itemName, itemCode, itemQuantity);
+				boolean res = itemDBUtill.addItem(itemName, itemCode, itemQuantity , fileName);
 
 				if (res == true) {
 					request.setAttribute("res", res);
@@ -74,5 +99,17 @@ public class addItemServlet extends HttpServlet {
 		}
 
 	}
+
+	private String extractFileName(Part part) {
+    	String contentDisp = part.getHeader("content-disposition");
+    	String[] items = contentDisp.split(";");
+    	for(String s : items) {
+    		if(s.trim().startsWith("filename")) {
+    			return s.substring(s.indexOf("=") + 2, s.length() - 1);
+    		}
+    	}
+    	return "";
+    }
+    
 
 }

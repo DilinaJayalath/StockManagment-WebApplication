@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -78,7 +79,7 @@
 <body>
     <h1>Update Task Details</h1>
     
-    <form action="addnew" method="post" class="task-form">
+    <form action="addnew" method="post" class="task-form" enctype="multipart/form-data" >
         <div class="form-group">
             <label for="ename">Item Name</label>
             <input type="text" name="itemName" id="ename" class="form-control" required>
@@ -91,6 +92,12 @@
             <label for="task">Item Quantity</label>
             <input type="number" name="itemQuantity" id="task" class="form-control" required>
         </div>
+        
+            <div class="form-group">
+        <label for="eimage">Item Image</label>
+        <input type="file" name="itemPhoto" id="eimage" class="form-control" required>
+    </div>
+        
         <div class="form-group">
             <button type="submit" name="submit" class="btn btn-primary">Add Items</button>
         </div>

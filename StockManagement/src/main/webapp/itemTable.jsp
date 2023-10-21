@@ -82,18 +82,22 @@
                         <th>Item Name</th>
                         <th>Item Code</th>
                         <th>Item Quantity</th>
+                        <th>Photo</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <c:forEach var="item" items="${itemList}">
                         <tr>
+                       
                             <td>${item.itemNo}</td>
                             <td>${item.itemName}</td>
                             <td>${item.itemCode}</td>
+                            <td> <img src="images/${item.itemPhoto}" alt="photo" width=100px;></td>
                             <td>${item.itemQuantity}</td>
                             <td class="actions">
-                                <a href="itemUpdate.jsp?num=${item.itemNo}&name=${item.itemName}&code=${item.itemCode}&qty=${item.itemQuantity}" class="action-button">Edit</a>
+                                <a href="itemUpdate.jsp?num=${item.itemNo}&name=${item.itemName}&code=${item.itemCode}&qty=${item.itemQuantity}&photo=${item.itemPhoto}" class="action-button">Edit</a>
+                               
                                 <button class="action-button delete" data-toggle="modal" data-target="#deleteModal${item.itemNo}">Delete</button>
                                 <!-- Delete Modal -->
                                 <div class="modal fade" id="deleteModal${item.itemNo}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -110,7 +114,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                                <form action="/StockManagement/deleteItemSvlet" method="post">
+                                                <form action="/StockManagement/itemsDeleteServlet" method="post">
                                                     <input type="hidden" name="itemNo" value="${item.itemNo}" />
                                                     <button type="submit" class="btn btn-danger">Delete</button>
                                                 </form>
@@ -118,6 +122,8 @@
                                         </div>
                                     </div>
                                 </div>
+                                
+                                
                             </td>
                         </tr>
                     </c:forEach>

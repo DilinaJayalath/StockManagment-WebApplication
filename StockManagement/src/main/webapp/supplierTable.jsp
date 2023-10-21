@@ -7,7 +7,8 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
 
 <style>
     body {
@@ -163,10 +164,13 @@
         }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-   
+
 
 <body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <div class="dashboard">
         <div class="sidebar">
             <ul>
@@ -200,16 +204,17 @@
                 <tbody>
                     <c:forEach var="item" items="${itemList}">
                         <tr>
-
+							<td>${item.spId}</td>
                             <td>${item.spName}</td>
                             <td>${item.spEmail}</td>
                             <td>${item.spPhone}</td>
                             <td>${item.spCategories}</td>
                             <td class="actions">
-                                <a href="supplierUpdate.jsp?&name=${item.spName}&email=${item.spEmail}&phone=${item.spPhone}&categories=${item.spCategories}" class="action-button">Edit</a>
-                                <button class="action-button delete" data-toggle="modal" data-target="#deleteModal${item.spEmail}">Delete</button>
+                                <a href="supplierUpdate.jsp?&no=${item.spId}&name=${item.spName}&email=${item.spEmail}&phone=${item.spPhone}&categories=${item.spCategories}" class="action-button">Edit</a>
+                                
+                                <button class="action-button delete" data-toggle="modal" data-target="#deleteModal${item.spId}">Delete</button>
                                 <!-- Delete Modal -->
-                                <div class="modal fade" id="deleteModal${item.spEmail}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                               <div class="modal fade" id="deleteModal${item.spId}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -223,14 +228,17 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                                <form action="/StockManagement/deleteItemSvlet" method="post">
-                                                    <input type="hidden" name="itemNo" value="${item.spEmail}" />
+                                                <form action="/StockManagement/supplierDeleteServlet" method="post">
+                                                    <input type="hidden" name="spNo" value="${item.spId}" />
                                                     <button type="submit" class="btn btn-danger">Delete</button>
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                
+                                
+                                
                             </td>
                         </tr>
                     </c:forEach>

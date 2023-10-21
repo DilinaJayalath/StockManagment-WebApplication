@@ -6,17 +6,28 @@ public class Items {
 	private String itemName;
 	private String itemCode;
 	private int itemQuantity;
+	private String itemPhoto;
 	
 	
-	public Items(int itemNo, String itemName, String itemCode, int itemQuantity) {
+
+
+	public Items(int itemNo, String itemName, String itemCode, int itemQuantity, String itemPhoto) {
 		super();
 		this.itemNo = itemNo;
 		this.itemName = itemName;
 		this.itemCode = itemCode;
 		this.itemQuantity = itemQuantity;
-		
+		this.itemPhoto = itemPhoto;
 	}
 
+	public String getItemPhoto() {
+		return itemPhoto;
+	}
+
+
+	public void setItemPhoto(String itemPhoto) {
+		this.itemPhoto = itemPhoto;
+	}
 
 	public int getItemNo() {
 		return itemNo;

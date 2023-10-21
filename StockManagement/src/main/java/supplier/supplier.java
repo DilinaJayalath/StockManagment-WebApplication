@@ -10,7 +10,7 @@ public class supplier {
 	
 	public supplier( int spid ,String spName, String spEmail, String spPhone, String spCategories) {
 
-		
+		this.spId = spid;
 		this.spName = spName;
 		this.spEmail = spEmail;
 		this.spPhone = spPhone;

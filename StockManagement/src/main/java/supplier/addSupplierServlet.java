@@ -31,7 +31,8 @@ public class addSupplierServlet extends HttpServlet {
 
 			List<supplier> spDetails = supplierDBUtill.supplierValidate(spEmail);
 
-			String emailSupplier = null;
+			
+			String emailSupplier = "";
 
 			for (supplier supplier : spDetails) {
 				emailSupplier = supplier.getSpEmail();
@@ -54,7 +55,7 @@ public class addSupplierServlet extends HttpServlet {
 				}
 
 			} else if (emailSupplier.equals(spEmail)) {
-				RequestDispatcher dis1 = request.getRequestDispatcher("fileHave.jsp");
+				RequestDispatcher dis1 = request.getRequestDispatcher("afterReg.jsp");
 				dis1.forward(request, response);
 
 //                response.setContentType("application/json");

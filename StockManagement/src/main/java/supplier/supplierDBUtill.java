@@ -121,6 +121,72 @@ public class supplierDBUtill {
 		
 	}
 	
+	
+	
+	
+	
+	
+	
+	public static boolean updateSupplier(int no ,String name, String email, String phone, String categories) {
+		
+		boolean isSuccess = false;
+		
+		try {
+			con = DBConnect.getCon();
+			stmt = con.createStatement();
+
+			String sql = "update supplier set supplierName = '"+name+"' , supplierEmail = '"+email+"', supplierPhone = '"+phone+"', supplierCategories = '"+categories+"'  where supplierId = "+no+" ";
+ 
+			int ret = stmt.executeUpdate(sql);
+			
+			if (ret > 0) {
+				isSuccess = true;
+			}else {
+				isSuccess = false;
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return isSuccess;
+
+						
+	}
+	
+	
+	
+	
+
+	
+	public static boolean deleteSupplier( int spNo ) {
+
+		boolean isSuccess = false;
+		
+		try {
+		con = DBConnect.getCon();
+		stmt = con.createStatement();
+
+		String sql = "DELETE FROM supplier WHERE supplierId = "+spNo+" ";
+
+		int ret = stmt.executeUpdate(sql);
+		
+		if (ret > 0) {
+			isSuccess = true;
+		}else {
+			isSuccess = false;
+		}
+		
+		
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return isSuccess;
+		
+	}
+	
 
 	
 	
