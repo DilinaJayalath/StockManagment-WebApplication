@@ -14,13 +14,13 @@
                 <form action="log" method="POST">
                      <div class="login-input-box">
                         <span class="input-icon"><i class="bx bxs-envelope"></i></span>
-                        <input name= "u_name" type="text" required>
+                        <input name= "uid" type="text" required>
                         <label>UserName</label>
                     </div>
 
                     <div class="login-input-box">
                         <span class="input-icon"><i class="bx bxs-lock-alt"></i></span>
-                        <input name="pw" type="password" required>
+                        <input name="pass" type="password" required>
                         <label>Password</label>
                     </div>
 

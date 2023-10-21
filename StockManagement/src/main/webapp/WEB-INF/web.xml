@@ -37,6 +37,22 @@ version="3.1">
 
 
 
+
+ <servlet>
+	<servlet-name>supierTB</servlet-name>
+	<servlet-class>supplier.suplierTableServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>supierTB</servlet-name>
+	<url-pattern>/supierTB</url-pattern>	
+</servlet-mapping>
+
+
+
+
+
+
  <servlet>
 	<servlet-name>delete</servlet-name>
 	<servlet-class>stock.manager.deleteItemSvlet</servlet-class>
@@ -68,6 +84,21 @@ version="3.1">
 			<servlet-name>Login</servlet-name>
 		<url-pattern>/log</url-pattern>
 	</servlet-mapping>
+
+
+
+
+	<servlet>
+		<servlet-name>addSupplier</servlet-name>
+		<servlet-class>supplier.addSupplierServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+			<servlet-name>addSupplier</servlet-name>
+		<url-pattern>/addSupplier</url-pattern>
+	</servlet-mapping>
+
+
 
 </web-app>
 
