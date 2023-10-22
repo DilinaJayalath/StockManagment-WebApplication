@@ -99,5 +99,18 @@ version="3.1">
 	</servlet-mapping>
 
 
+	<servlet>
+		<servlet-name>logout</servlet-name>
+		<servlet-class>customer.logoutServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+			<servlet-name>logout</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+
+
+
+
 </web-app>
 

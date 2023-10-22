@@ -42,8 +42,9 @@ public class customerDBUtill {
 				String phone = re.getString(4);
 				String userU = re.getString(5);
 				String passU = re.getString(6);
+				String type = re.getString(7);
 				
-				Customer c = new Customer(id,name , email , phone , userU , passU);
+				Customer c = new Customer(id,name , email , phone , userU , passU , type);
 				
 				cus.add(c);
 								

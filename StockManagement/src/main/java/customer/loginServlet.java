@@ -28,25 +28,41 @@ public class loginServlet extends HttpServlet {
 			request.setAttribute("cusDetails", cusDetails);
 
 			String saveUname = "";
+			String type = "";
 
 			for (Customer customer : cusDetails) {
 				saveUname = customer.getUser_Name();
+				type = customer.getType();
+				
 			}
+			
+			System.out.println(saveUname+type);
 
 			if (cusDetails.isEmpty()) {
 
-				RequestDispatcher dis = request.getRequestDispatcher("invalidLog.jsp");
+				RequestDispatcher dis = request.getRequestDispatcher("Customer_Login.jsp");
 				dis.forward(request, response);
 			} else {
 
 				HttpSession session = request.getSession(true);
 				session.setAttribute("saveUname", saveUname);
+				session.setAttribute("userType", type);
 
-
+				if("Dilina".equals(saveUname)) {
+					RequestDispatcher dis = request.getRequestDispatcher("stockDetails.jsp");
+					dis.forward(request, response);
+				}
+				else if("Chamu".equals(saveUname)) {
+					RequestDispatcher dis = request.getRequestDispatcher("supplierTableBtn.jsp");
+					dis.forward(request, response);
+				}
+				else {
+					
+					RequestDispatcher dis = request.getRequestDispatcher("useraccount.jsp");
+					dis.forward(request, response);
+				}
 					
 				
-				RequestDispatcher dis = request.getRequestDispatcher("useraccount.jsp");
-				dis.forward(request, response);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -16,25 +16,38 @@
 <td class="logo1">
 	<image src="css/logo.png" class ="logo">
 </td>
+
+
+<% 
+    String saveUname = (String) session.getAttribute("saveUname");
+  
+%>
+
+
 <td  class="logo2">	
 	<h1 class="logo-text1">Stock Manager Dashboard </h1>
-	<h4 class = "logo-text2">--Stock Management Website--</h4>
+		<h4 class = "logo-text2">--Stock Management Website--</h4>
 </td>
+
+
 
 <td  class="logo3">	
 <div class="buttons">
+
         <div class="dropdown">
 	<button class="circle-button"><center><i class='far fa-user-circle' style="z-index: 9990; font-size:36px;color:white;"viewport></i></center></button>
 	<div class="dropdown-content">
+
        <a href="profilesetting.php" target="iframe_a">Change Profile</a>
-        <a href="includes/logout.php">Logout</a>
+        <a href="logout">Logout</a>
       </div>
       </div>
       <div class="dropdown">
+      	<h4 class = "logo-text2">   <p>Welcome, <%= saveUname %></p></h4>
         <button class="signup">Super Admin</button>
         <div class="dropdown-content">
         <a href="profilesetting.php" target="iframe_a">Change Profile</a>
-        <a href="includes/logout.php">Logout</a>
+        <a href="logout">Logout</a>
       </div>
       </div>
       </div>

@@ -177,15 +177,29 @@
                 <li><a href="#"><i class="fas fa-chart-bar"></i> Dashboard</a></li>
                 <li><a href="#"><i class="fas fa-user-friends"></i> Suppliers</a></li>
                 <li><a href="#"><i class="fas fa-box-open"></i> Products</a></li>
-                <li><a href="#"><i class="fas fa-chart-line"></i> Reports</a></li>
+                <li><a href="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> LogOut</a></li>
             </ul>
         </div>
+        
+        
+        
+        
+
+<% 
+    String saveUname = (String) session.getAttribute("saveUname");
+  
+%>
+
+
+        
+        
         
         <div class="main-content">
             <header>
                 <div class="header-left">
                     <h1>Supplier Management</h1>
-                    <p>Welcome, John Doe</p>
+                    <p>Welcome, <%= saveUname %></p>
+          
                 </div>
                 <div class="header-right">
                    <a href="addSupplier.jsp"> <button  class="add-button">Add Supplier</button></a>
@@ -196,8 +210,9 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Contact</th>
                         <th>Email</th>
+                        <th>Contact</th>
+                        <th>Categories</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -213,7 +228,7 @@
                                 <a href="supplierUpdate.jsp?&no=${item.spId}&name=${item.spName}&email=${item.spEmail}&phone=${item.spPhone}&categories=${item.spCategories}" class="action-button">Edit</a>
                                 
                                 <button class="action-button delete" data-toggle="modal" data-target="#deleteModal${item.spId}">Delete</button>
-                                <!-- Delete Modal -->
+                       
                                <div class="modal fade" id="deleteModal${item.spId}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">

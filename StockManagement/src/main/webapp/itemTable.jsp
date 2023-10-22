@@ -81,8 +81,8 @@
                         <th>Item ID</th>
                         <th>Item Name</th>
                         <th>Item Code</th>
-                        <th>Item Quantity</th>
                         <th>Photo</th>
+                        <th>Item Quantity</th>
                         <th>Actions</th>
                     </tr>
                 </thead>

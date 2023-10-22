@@ -110,7 +110,7 @@
     
     
     
-    <form action="addnew" method="post" class="task-form" enctype="multipart/form-data" >
+    <form action="addnew" method="post" class="task-form"  onsubmit="return validateForm();" enctype="multipart/form-data" >
         <div class="form-group">
             <label for="ename">Item Name</label>
             <input type="text" name="itemName" id="ename" class="form-control" required>
@@ -121,7 +121,7 @@
         </div>
         <div class="form-group">
             <label for="task">Item Quantity</label>
-            <input type="number" name="itemQuantity" id="task" class="form-control" required>
+            <input type="number" name="itemQuantity" id="task" class="form-control"  required>
         </div>
         
             <div class="form-group">
@@ -136,5 +136,18 @@
     
     <!-- Add Bootstrap JavaScript (optional) -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+    function validateForm() {
+        var quantity = document.getElementById("task").value;
+
+        // Check if quantity is not empty and is a positive number
+        if (quantity === "" || isNaN(quantity) || parseFloat(quantity) <= 0) {
+            alert("Quantity must be a positive number.");
+            return false; // Prevent form submission
+        }
+
+        return true; // Form is valid
+    }
+</script>
 </body>
 </html>

@@ -73,7 +73,7 @@
     String photo = request.getParameter("photo");
 %>
 
-<form action="/StockManagement/updateItemServlet" method="post" enctype="multipart/form-data">
+<form action="/StockManagement/updateItemServlet" method="post" onsubmit="return validateForm();" enctype="multipart/form-data">
     <h1>Edit Item</h1>
     <input type="number" name="itemId" value="<%= no%>" readonly>
     <label for="itemName">Item Name:</label>
@@ -81,7 +81,7 @@
     <label for="itemCode">Item Code:</label>
     <input type="text" name="itemCode" value="<%= code%>" required>
     <label for="itemQuantity">Item Quantity:</label>
-    <input type="number" name="itemQuantity" value="<%= qty%>" required>
+    <input type="number" name="itemQuantity"  id="task" class="form-control" value="<%= qty%>" required>
     
     
     <div class="form-group">
@@ -111,7 +111,19 @@
 			}
 		});
     
-		</script>
+	
+    function validateForm() {
+        var quantity = document.getElementById("task").value;
+
+        // Check if quantity is not empty and is a positive number
+        if (quantity === "" || isNaN(quantity) || parseFloat(quantity) <= 0) {
+            alert("Quantity must be a positive number.");
+            return false; // Prevent form submission
+        }
+
+        return true; // Form is valid
+    }
+</script>
 
 <!-- Cancel Modal -->
 <div class="modal fade" id="cancelModal" tabindex="-1" role="dialog" aria-labelledby="cancelModalLabel" aria-hidden="true">
