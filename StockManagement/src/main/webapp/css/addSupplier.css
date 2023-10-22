@@ -69,3 +69,11 @@ input[type="submit"] {
     display: block;
     margin: 0 auto;
 }
+
+.d-block {
+    display: block !important; /* The !important flag is used to ensure the style takes precedence. */
+}
+
+.d-none {
+    display: none !important; /* The !important flag is used to ensure the style takes precedence. */
+}

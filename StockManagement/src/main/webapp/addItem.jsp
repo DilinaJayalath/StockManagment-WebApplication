@@ -74,10 +74,41 @@
             margin-top: 20px;
             margin-bottom: 40px;
         }
+        p{
+        color: red; 
+        text-align: center;
+        }
+        
     </style>
 </head>
 <body>
     <h1>Update Task Details</h1>
+    
+    
+    
+    
+	<c:out value="${sessionScope.supplierExists}" />
+<% 
+    String saveUname = (String) session.getAttribute("itemExists");
+    session.removeAttribute("itemExists"); // Remove the session attribute
+%>
+
+
+ <%
+	if("item".equals(saveUname)){
+	%><p>That Item Is Already Available</p>
+	
+
+	<% 
+	
+	}else{
+	
+	%>   <p style="color: black;">Enter Item Details</p> <%
+}
+%>
+    
+    
+    
     
     <form action="addnew" method="post" class="task-form" enctype="multipart/form-data" >
         <div class="form-group">

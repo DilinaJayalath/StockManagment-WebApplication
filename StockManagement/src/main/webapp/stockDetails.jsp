@@ -68,7 +68,7 @@
           <iframe src="src/logo.png" name="iframe_a" height="20px" width="100%" title="Iframe Example"></iframe>
   </tr>
    <tr>
-    <td class="tdmain" style="width:20%;"><center><br><a href="#" target="iframe_a"><button class="dashboad_btn">&nbsp;&nbsp;&nbsp;&nbsp;Approve &nbsp;&nbsp;&nbsp;&nbsp;</button></a></center><br></td>
+    <td class="tdmain" style="width:20%;"><center><br><a href="itemTableBtn.jsp" target="iframe_a"><button class="dashboad_btn">&nbsp;&nbsp;&nbsp;&nbsp;Genarate Report &nbsp;&nbsp;&nbsp;&nbsp;</button></a></center><br></td>
   </tr>
   <tr><td><p style="font-size: 50px; color:white;"></p></td></tr>
   <tr><td><p style="font-size: 60px; color:white;"></p></td></tr>

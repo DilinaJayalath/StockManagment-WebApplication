@@ -100,9 +100,9 @@ public class supplierDBUtill {
 				
 				int spId = re.getInt(1);
 				 String spName = re.getString(2);
-				 String spEmail = re.getString(2);;
-				 String spPhone = re.getString(2);;
-				String spCategories = re.getString(2);;
+				 String spEmail = re.getString(3);
+				 String spPhone = re.getString(4);
+				String spCategories = re.getString(5);
 				
 				supplier it = new supplier(spId , spName , spEmail , spPhone , spCategories);
 				

@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 @WebServlet("/addItemServlet")
@@ -82,8 +83,11 @@ public class addItemServlet extends HttpServlet {
 				}
 
 			} else if (itmCD.equals(itemCode)) {
-				RequestDispatcher dis1 = request.getRequestDispatcher("fileHave.jsp");
+				HttpSession session = request.getSession(true);
+				session.setAttribute("itemExists", "item");
+				RequestDispatcher dis1 = request.getRequestDispatcher("addItem.jsp");
 				dis1.forward(request, response);
+
 
 //                response.setContentType("application/json");
 //                response.setCharacterEncoding("UTF-8");

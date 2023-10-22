@@ -137,8 +137,8 @@ input[type="number"], input[type="text"] {
 					<label for="itemName">Supplier Name:</label> 
 					<input type="text"name="spName" value="<%=name%>" required> 
 					<label for="itemCode">Supplier Email:</label> 
-					<input type="text"name="spEmail" value="<%=email%>" required> 
-					<labelfor="itemQuantity">Supplier Phone:</label> 
+					<input type="email"name="spEmail" value="<%=email%>" required> 
+					<label for="itemQuantity">Supplier Phone:</label> 
 					<input type="number" name="spPhone" value="<%=phone%>" required> 
 					<label for="itemQuantity">Supplier categories:</label> 
 					<input type="text" name=spCategories value="<%=categories%>" required>

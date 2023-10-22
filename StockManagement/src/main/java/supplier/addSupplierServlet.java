@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import stock.manager.Items;
 import stock.manager.itemDBUtill;
@@ -55,7 +56,10 @@ public class addSupplierServlet extends HttpServlet {
 				}
 
 			} else if (emailSupplier.equals(spEmail)) {
-				RequestDispatcher dis1 = request.getRequestDispatcher("afterReg.jsp");
+				
+				HttpSession session = request.getSession(true);
+				session.setAttribute("supplierExists", "Email");
+				RequestDispatcher dis1 = request.getRequestDispatcher("addSupplier.jsp");
 				dis1.forward(request, response);
 
 //                response.setContentType("application/json");
