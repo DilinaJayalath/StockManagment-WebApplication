@@ -42,7 +42,6 @@ public class addItemServlet extends HttpServlet {
 			
 			
 	        String fileName = extractFileName(part);
-	        String savePath = "C:\\Users\\D I L I N A\\Desktop\\Repo\\StockManagement\\src\\main\\webapp\\images" + File.separator + fileName;
 	        File fileSaveDir = new File(savePath);
 	        
 	        part.write(savePath + File.separator);

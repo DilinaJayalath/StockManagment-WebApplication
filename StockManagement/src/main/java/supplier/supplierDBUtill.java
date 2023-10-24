@@ -63,8 +63,8 @@ public class supplierDBUtill {
 			
 			
 			 while (re.next()) {
-				 	
-				 supplier supp = new supplier(re.getInt("supplierId") ,re.getString("supplierName") , re.getString("supplierEmail") ,re.getString("supplierPhone") ,re.getString("supplierCategories")  );
+
+				 supplier supp = new SupplierDetails(re.getInt("supplierId") ,re.getString("supplierName") , re.getString("supplierEmail") ,re.getString("supplierPhone") ,re.getString("supplierCategories")  );
 			       
 				 supplierList.add(supp);
 			    }
@@ -104,7 +104,7 @@ public class supplierDBUtill {
 				 String spPhone = re.getString(4);
 				String spCategories = re.getString(5);
 				
-				supplier it = new supplier(spId , spName , spEmail , spPhone , spCategories);
+				supplier it = new SupplierDetails(spId , spName , spEmail , spPhone , spCategories);
 				
 				itm.add(it);
 								
