@@ -18,6 +18,7 @@ public class Customer {
 		Phone = phone;
 		User_Name = un;
 		Password = passw;
+		this.type = type;
 	}
 
 	public int getId() {

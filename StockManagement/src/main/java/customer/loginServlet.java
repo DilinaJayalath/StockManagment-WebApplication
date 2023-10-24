@@ -48,17 +48,17 @@ public class loginServlet extends HttpServlet {
 				session.setAttribute("saveUname", saveUname);
 				session.setAttribute("userType", type);
 
-				if("Dilina".equals(saveUname)) {
+				if("stManager".equals(type)) {
 					RequestDispatcher dis = request.getRequestDispatcher("stockDetails.jsp");
 					dis.forward(request, response);
 				}
-				else if("Chamu".equals(saveUname)) {
+				else if("ptManager".equals(type)) {
 					RequestDispatcher dis = request.getRequestDispatcher("supplierTableBtn.jsp");
 					dis.forward(request, response);
 				}
 				else {
 					
-					RequestDispatcher dis = request.getRequestDispatcher("useraccount.jsp");
+					RequestDispatcher dis = request.getRequestDispatcher("index.jsp");
 					dis.forward(request, response);
 				}
 					
