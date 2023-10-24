@@ -38,6 +38,7 @@ public class updateItemServlet extends HttpServlet {
         Part part = request.getPart("itemPhoto");
         if (part != null && part.getSize() > 0) {
         	fileName = extractFileName(part);
+        	String savePath = "C:\\Users\\Dell\\Desktop\\StockManagment\\StockManagement\\src\\main\\webapp\\images" + File.separator + fileName;
         	File fileSaveDir = new File(savePath);
         
         	part.write(savePath + File.separator);

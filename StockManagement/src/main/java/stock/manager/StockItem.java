@@ -7,6 +7,7 @@ public interface StockItem {
     int getItemQuantity();
     String getItemPhoto();
 
+    void setItemNo(int itemNo);
     void setItemName(String itemName);
     void setItemCode(String itemCode);
     void setItemQuantity(int itemQuantity);

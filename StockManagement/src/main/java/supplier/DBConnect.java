@@ -7,7 +7,7 @@ public class DBConnect {
 
 	private static String url = "jdbc:mysql://localhost:3306/stock";
 	private static String user = "root";
-	private static String paword = "8632020dd";
+	private static String paword = "chamu";
 	private static Connection con;
 		
 	public static Connection getCon() {
