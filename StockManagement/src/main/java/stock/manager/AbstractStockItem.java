@@ -6,14 +6,17 @@ public abstract class AbstractStockItem implements StockItem {
     private String itemCode;
     private int itemQuantity;
     private String itemPhoto;
+    private String itemPrice;
 
     // Constructor
-    public AbstractStockItem( int itemNo ,String itemName, String itemCode, int itemQuantity, String itemPhoto) {
+    public AbstractStockItem( int itemNo ,String itemName, String itemCode, int itemQuantity, String itemPhoto , String itemPrice) {
     	this.itemNo = itemNo;
         this.itemName = itemName;
         this.itemCode = itemCode;
         this.itemQuantity = itemQuantity;
         this.itemPhoto = itemPhoto;
+        this.itemPrice = itemPrice;
+        
     }
 
     @Override
@@ -23,6 +26,14 @@ public abstract class AbstractStockItem implements StockItem {
 
     public int getItemNo() {
 		return itemNo;
+	}
+
+	public String getItemPrice() {
+		return itemPrice;
+	}
+
+	public void setItemPrice(String itemPrice) {
+		this.itemPrice = itemPrice;
 	}
 
 	public void setItemNo(int itemNo) {

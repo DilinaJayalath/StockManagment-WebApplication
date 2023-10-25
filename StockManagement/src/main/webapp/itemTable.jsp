@@ -21,6 +21,7 @@
                         <th>Item Code</th>
                         <th>Photo</th>
                         <th>Item Quantity</th>
+                        <th>Item Price</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -33,8 +34,9 @@
                             <td>${item.itemCode}</td>
                             <td> <img src="images/${item.itemPhoto}" alt="photo" width=100px;></td>
                             <td>${item.itemQuantity}</td>
+                            <td>${item.itemPrice}</td>
                             <td class="actions">
-                                <a href="itemUpdate.jsp?num=${item.itemNo}&name=${item.itemName}&code=${item.itemCode}&qty=${item.itemQuantity}&photo=${item.itemPhoto}" class="action-button">Edit</a>
+                                <a href="itemUpdate.jsp?num=${item.itemNo}&name=${item.itemName}&code=${item.itemCode}&qty=${item.itemQuantity}&photo=${item.itemPhoto}&price=${item.itemPrice}" class="action-button">Edit</a>
                                
                                 <button class="action-button delete" data-toggle="modal" data-target="#deleteModal${item.itemNo}">Delete</button>
                                 <!-- Delete Modal -->

@@ -31,6 +31,7 @@ public class updateItemServlet extends HttpServlet {
 		String itemCode = request.getParameter("itemCode");
 		int itemQuantity = Integer.parseInt(request.getParameter("itemQuantity"));
 		String deimage = request.getParameter("hiddenField");
+		String itemPrice = request.getParameter("itemPrice");
         
         
 
@@ -38,7 +39,7 @@ public class updateItemServlet extends HttpServlet {
         Part part = request.getPart("itemPhoto");
         if (part != null && part.getSize() > 0) {
         	fileName = extractFileName(part);
-        	String savePath = "C:\\Users\\D I L I N A\\Desktop\\Repo\\StockManagement\\src\\main\\webapp\\images" + File.separator + fileName;
+        	String savePath = "C:\\Users\\DELL\\OneDrive\\Documents\\GitHub\\StockManagment\\StockManagement\\src\\main\\webapp\\images" + File.separator + fileName;
         	File fileSaveDir = new File(savePath);
         
         	part.write(savePath + File.separator);
@@ -54,7 +55,7 @@ public class updateItemServlet extends HttpServlet {
         }
 		
 		
-		boolean res = itemDBUtill.updateItems(itemNo, itemName,itemCode,itemQuantity,fileName);
+		boolean res = itemDBUtill.updateItems(itemNo, itemName,itemCode,itemQuantity,fileName,itemPrice);
 		
 		
 		

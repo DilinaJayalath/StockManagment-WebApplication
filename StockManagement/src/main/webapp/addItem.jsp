@@ -61,6 +61,11 @@
         <label for="eimage">Item Image</label>
         <input type="file" name="itemPhoto" id="eimage" class="form-control" required>
     </div>
+    
+    <div class="form-group">
+            <label for="eid">Item Price</label>
+            <input type="text" name="itemPrice" id="eid" class="form-control" required>
+        </div>
         
         <div class="form-group">
             <button type="submit" name="submit" class="btn btn-primary">Add Items</button>

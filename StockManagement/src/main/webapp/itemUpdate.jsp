@@ -16,6 +16,7 @@
     String code = request.getParameter("code");
     int qty = Integer.parseInt(request.getParameter("qty"));
     String photo = request.getParameter("photo");
+    String price = request.getParameter("price");
 %>
 
 <form action="/StockManagement/updateItemServlet" method="post" onsubmit="return validateForm();" enctype="multipart/form-data">
@@ -27,6 +28,8 @@
     <input type="text" name="itemCode" value="<%= code%>" required>
     <label for="itemQuantity">Item Quantity:</label>
     <input type="number" name="itemQuantity"  id="task" class="form-control" value="<%= qty%>" required>
+        <label for="itemPrice">Item Price:</label>
+    <input type="text" name="itemPrice" value="<%= price%>" required>
     
     
     <div class="form-group">

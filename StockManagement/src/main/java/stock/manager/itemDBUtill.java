@@ -13,7 +13,7 @@ public class itemDBUtill {
 	static Statement stmt = null;
 	static ResultSet re = null;
 
-	public static boolean addItem( String itemName, String itemCode, int itemQuantity , String fileName) {
+	public static boolean addItem( String itemName, String itemCode, int itemQuantity , String fileName , String itemPrice) {
 		
 		boolean isSuccess = false;
 		try {
@@ -21,7 +21,7 @@ public class itemDBUtill {
 			con = DBConnect.getCon();
 			stmt = con.createStatement();
 
-			String sql = "insert into items values(0, '" + itemName + "' , '" + itemCode+ "' , " + itemQuantity + " , '"+fileName+"')";
+			String sql = "insert into items values(0, '" + itemName + "' , '" + itemCode+ "' , " + itemQuantity + " , '"+fileName+"' , "+itemPrice+")";
 
 			int ret = stmt.executeUpdate(sql);
 
@@ -60,9 +60,11 @@ public class itemDBUtill {
 				String itemName = re.getString(2);
 				String itemCode = re.getString(3);
 				int itemQuantity = re.getInt(4);
-				String itemPhoto = re.getString(3);
+				String itemPhoto = re.getString(5);
+				String itemPrice = re.getString(6);
+				
 					
-				Items it = new Items(itemNo , itemName , itemCode , itemQuantity , itemPhoto);
+				Items it = new Items(itemNo , itemName , itemCode , itemQuantity , itemPhoto,  itemPrice);
 				
 				itm.add(it);
 								
@@ -95,7 +97,7 @@ public class itemDBUtill {
 			
 			
 			 while (re.next()) {
-			        Items item = new Items( re.getInt("itemNo") , re.getString("itemName") , re.getString("itemCode"), re.getInt("itemQuantity"),re.getString("itemPhoto"));
+			        Items item = new Items( re.getInt("itemNo") , re.getString("itemName") , re.getString("itemCode"), re.getInt("itemQuantity"),re.getString("itemPhoto"),re.getString("itemPrice"));
 			        
 			       
 			        itemList.add(item);
@@ -111,7 +113,7 @@ public class itemDBUtill {
 	}
 	
 	
-	public static boolean updateItems(int itmno , String itemName, String itemCode, int itemQuantity ,String itemPhoto ) {
+	public static boolean updateItems(int itmno , String itemName, String itemCode, int itemQuantity ,String itemPhoto, String itemPrice ) {
 		
 		boolean isSuccess = false;
 		
@@ -119,7 +121,7 @@ public class itemDBUtill {
 			con = DBConnect.getCon();
 			stmt = con.createStatement();
 
-			String sql = "update items set itemName = '"+itemName+"' , itemCode = '"+itemCode+"', itemQuantity = '"+itemQuantity+"' , itemPhoto='"+itemPhoto+"' where itemNo = "+itmno+" ";
+			String sql = "update items set itemName = '"+itemName+"' , itemCode = '"+itemCode+"', itemQuantity = '"+itemQuantity+"' , itemPhoto='"+itemPhoto+"'  , itemPrice = '"+itemPrice+"' where itemNo = "+itmno+" ";
  
 			int ret = stmt.executeUpdate(sql);
 			

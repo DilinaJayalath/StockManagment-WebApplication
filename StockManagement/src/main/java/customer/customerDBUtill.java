@@ -82,7 +82,7 @@ public class customerDBUtill {
 			con = DBConnect.getCon();
 			stmt = con.createStatement();
 			
-			String sql = "insert into customer values(0,'"+ name +"','"+email+"','"+phone+"', '"+uname+"','"+pswd+"')";
+			String sql = "insert into customer values(0,'"+ name +"','"+email+"','"+phone+"', '"+uname+"','"+pswd+"','user')";
 
 			
 			int ret = stmt.executeUpdate(sql);
@@ -102,6 +102,12 @@ public class customerDBUtill {
 		
 		return isSuccess;
 	}
+	
+	
+	
+	
+	
+	
 	
 	
 	

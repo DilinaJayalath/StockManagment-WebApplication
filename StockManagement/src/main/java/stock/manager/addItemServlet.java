@@ -34,7 +34,7 @@ public class addItemServlet extends HttpServlet {
 			String itemName = request.getParameter("itemName");
 			String itemCode = request.getParameter("itemCode");
 			
-			
+			String itemPrice = request.getParameter("itemPrice");
 			System.out.println(itemName+itemCode);
 			int itemQuantity = Integer.parseInt(request.getParameter("itemQuantity"));
 			
@@ -42,7 +42,7 @@ public class addItemServlet extends HttpServlet {
 			
 			
 	        String fileName = extractFileName(part);
-        	String savePath = "C:\\Users\\D I L I N A\\Desktop\\Repo\\StockManagement\\src\\main\\webapp\\images" + File.separator + fileName;
+        	String savePath = "C:\\Users\\DELL\\OneDrive\\Documents\\GitHub\\StockManagment\\StockManagement\\src\\main\\webapp\\images" + File.separator + fileName;
 	        File fileSaveDir = new File(savePath);
 	        
 	        part.write(savePath + File.separator);
@@ -68,7 +68,7 @@ public class addItemServlet extends HttpServlet {
 
 			if (itemDetails.isEmpty()) {
 
-				boolean res = itemDBUtill.addItem(itemName, itemCode, itemQuantity , fileName);
+				boolean res = itemDBUtill.addItem(itemName, itemCode, itemQuantity , fileName ,itemPrice);
 
 				if (res == true) {
 					request.setAttribute("res", res);

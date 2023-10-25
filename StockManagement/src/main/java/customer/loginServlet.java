@@ -58,7 +58,7 @@ public class loginServlet extends HttpServlet {
 				}
 				else {
 					
-					RequestDispatcher dis = request.getRequestDispatcher("index.jsp");
+					RequestDispatcher dis = request.getRequestDispatcher("/itemsListCus");
 					dis.forward(request, response);
 				}
 					
