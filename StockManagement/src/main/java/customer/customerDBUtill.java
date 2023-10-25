@@ -2,11 +2,13 @@ package customer;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import stock.manager.DBConnect;
+import stock.manager.Items;
 
 public class customerDBUtill {
 	
@@ -105,6 +107,70 @@ public class customerDBUtill {
 	
 	
 	
+	
+	public static boolean addToCart( int cusId,String itemCode,String itemName, String itemPrice){
+
+		boolean isSuccess = false;
+		
+		try {
+		con = DBConnect.getCon();
+		stmt = con.createStatement();
+
+		String sql = "insert into buy_products (itemCode, itemName, itemPrice, cus_id ,itemQuantity ) values ('"+itemCode+"', '"+itemName+"', '"+itemPrice+"', "+cusId+" , 1)" ;
+
+		int ret = stmt.executeUpdate(sql);
+		
+		if (ret > 0) {
+			isSuccess = true;
+		}else {
+			isSuccess = false;
+		}
+		
+		
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+		System.out.println(isSuccess);
+		
+	return isSuccess;
+		
+	}
+
+
+
+	
+	public static List<Items> returnCartData(int cusId) {
+		
+		List<Items> itemList = new ArrayList<>();
+		
+		try {
+			con = DBConnect.getCon();
+			stmt = con.createStatement();
+			
+			String sql = "select * from buy_products where cus_id = "+cusId+"  ";
+			
+			re = stmt.executeQuery(sql);
+			
+			
+			 while (re.next()) {
+			        Items item = new Items(re.getString("itemName") , re.getString("itemCode") ,re.getInt("itemQuantity") , re.getString("itemPrice")) ;
+
+			       
+			        itemList.add(item);
+			    }
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return itemList;
+
+		
+	}
+
+
+
 	
 	
 	

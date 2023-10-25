@@ -47,7 +47,12 @@
                 </div>
                 
           
-                
+                        
+
+<% 
+    int cusId = (Integer) session.getAttribute("cusId");
+  
+%>
                 
 
        <section class="shop container">
@@ -59,7 +64,7 @@
                            <p> ${item.itemNo}
                             ${item.itemName}
                             ${item.itemCode}
-                            <img src="images/${item.itemPhoto}" alt="photo" width=100px;>
+                            <img src ="images/${item.itemPhoto}" alt="photo" width=100px;>
                             ${item.itemQuantity}
                             ${item.itemPrice}</p>
                           --%>
@@ -71,15 +76,28 @@
                 <img src="images/${item.itemPhoto}" alt="1" class="product-img">
                 <h2 class="product-title">${item.itemName}</h2>
                 <span class="price">${item.itemPrice}</span>
-                <i class='bx bx-shopping-bag add-cart'></i>
-            </div>
+                <%-- <a href="Card.jsp?num=${item.itemNo}&name=${item.itemName}&price=${item.itemPrice}">  --%>
+                
+           
+            <form action="/StockManagement/cartServlet"  method ="post">
+            
+             <input type="hidden" name = "cusId" value="<%=cusId%>">
+            <input type="hidden" name = "itemCode" value="${item.itemCode}">
+               <input type="hidden" name = "itemName" value="${item.itemName}">
+                  <input type="hidden" name = "itemPrice" value="${item.itemPrice}">
+         		 <button type ="submit"> <i class='bx bx-shopping-bag add-cart'></i></button>
+            </form>
 
-
+ </div>
 
 
 </c:forEach>
         </div>
-    
+        
+        <form action="/StockManagement/cartTableServlet" method ="post">
+      <input type="hidden" name = "cusId" value="<%=cusId%>">
+      <button type= "submit"> sdfghj</button>
+    </form>
     </section>
 
 

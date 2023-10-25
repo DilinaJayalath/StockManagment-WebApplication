@@ -29,8 +29,10 @@ public class loginServlet extends HttpServlet {
 
 			String saveUname = "";
 			String type = "";
+			int cusId = 0;
 
 			for (Customer customer : cusDetails) {
+				cusId = customer.getId();
 				saveUname = customer.getUser_Name();
 				type = customer.getType();
 				
@@ -47,6 +49,7 @@ public class loginServlet extends HttpServlet {
 				HttpSession session = request.getSession(true);
 				session.setAttribute("saveUname", saveUname);
 				session.setAttribute("userType", type);
+				session.setAttribute("cusId", cusId);
 
 				if("stManager".equals(type)) {
 					RequestDispatcher dis = request.getRequestDispatcher("stockDetails.jsp");

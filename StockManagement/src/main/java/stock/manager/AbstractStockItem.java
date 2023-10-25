@@ -18,6 +18,15 @@ public abstract class AbstractStockItem implements StockItem {
         this.itemPrice = itemPrice;
         
     }
+    
+    public AbstractStockItem( String itemName, String itemCode, int itemQuantity, String itemPrice) {
+  
+        this.itemName = itemName;
+        this.itemCode = itemCode;
+        this.itemQuantity = itemQuantity;
+        this.itemPrice = itemPrice;
+        
+    }
 
     @Override
     public String getItemName() {
