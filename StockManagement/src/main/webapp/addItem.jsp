@@ -64,7 +64,7 @@
     
     <div class="form-group">
             <label for="eid">Item Price</label>
-            <input type="text" name="itemPrice" id="eid" class="form-control" required>
+            <input type="number" name="itemPrice" id="task" class="form-control" required>
         </div>
         
         <div class="form-group">

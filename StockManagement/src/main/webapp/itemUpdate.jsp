@@ -29,7 +29,7 @@
     <label for="itemQuantity">Item Quantity:</label>
     <input type="number" name="itemQuantity"  id="task" class="form-control" value="<%= qty%>" required>
         <label for="itemPrice">Item Price:</label>
-    <input type="text" name="itemPrice" value="<%= price%>" required>
+    <input type="number" name="itemPrice" id="task" value="<%= price%>" required>
     
     
     <div class="form-group">
