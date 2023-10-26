@@ -13,6 +13,7 @@
 
 <body>
 
+<%@ include file="header.jsp" %>
 
 <% 
     int cusId = (Integer) session.getAttribute("cusId");

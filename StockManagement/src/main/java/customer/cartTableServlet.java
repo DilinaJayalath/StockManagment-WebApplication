@@ -29,15 +29,19 @@ public class cartTableServlet extends HttpServlet {
 
 		List<Items> ItemsList = customerDBUtill.returnCartData(cusId);
 		
+		
+		double sum1=0;
 		double sum=0;
 		int qty=0;
 		for (Items items : ItemsList) {
 			
-			sum += Double.parseDouble(items.getItemPrice());
+			sum1 = Double.parseDouble(items.getItemPrice());
 			qty = items.getItemQuantity();
 			
+			sum1 = sum1 * qty;
+			sum+=sum1;
 		}
-		sum = sum * qty;
+		
 		HttpSession session = request.getSession(true);
 		session.setAttribute("sum", sum);
         request.setAttribute("cardDetails", ItemsList);

@@ -8,6 +8,8 @@
 </head>
 <body>
 	
+	
+	<%@ include file="header.jsp" %>
 <% 
 
 	double sum = (Double) session.getAttribute("sum");

@@ -16,6 +16,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100vh;
 }
 
 /* Style the payment box */
@@ -24,7 +25,7 @@ body {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   text-align: center;
-  padding: 80px;
+  padding: 200px;
 }
 
 /* Style the form header */

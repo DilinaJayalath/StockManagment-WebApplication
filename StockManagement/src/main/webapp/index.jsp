@@ -61,10 +61,11 @@
 
 </c:forEach>
         </div>
-        
+        <br>
+        <br>
         <form action="/StockManagement/cartTableServlet" method ="post">
       <input type="hidden" name = "cusId" value="<%=cusId%>">
-      <button type= "submit" name ="cartT"> <p>GO TO CART</p> </button>
+    <button type= "submit" name ="cartT"> <i class = "cartT">GO TO CART</i> </button>
     </form>
     </section>
 

@@ -235,15 +235,3 @@ section{
     background: hsl(249, 32%, 17%);
 }
 
-.cartT{
-	padding-right: 40px;
-	color: black;
-	text-decoration-color: white;
-
-	
-}
-
-.cartT p{
-		    font-size: 1.1rem;
-    font-weight: 600;
-}

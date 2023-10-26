@@ -21,9 +21,9 @@ body {
 
 .logincontainer{
     position: relative;
-    width: 100%;
+    width: 200%;
     max-width: 450px;
-    height: 530px;
+    height: 680px;
     background: transparent;
     border-radius: 20px;
     border: 2px solid rgba(257, 257, 257, 7);

@@ -32,13 +32,13 @@ public class PaymentServlet extends HttpServlet {
 			
 			if (pay == true) {
 				request.setAttribute("pay", pay);
-				RequestDispatcher dis1 =request.getRequestDispatcher("index.jsp");
+				RequestDispatcher dis1 =request.getRequestDispatcher("/itemsListCus");
 			    dis1.forward(request,response);
 			    
 			}
 			else {
 				request.setAttribute("pay", pay);
-				RequestDispatcher dis1 =request.getRequestDispatcher("index.jsp");
+				RequestDispatcher dis1 =request.getRequestDispatcher("/itemsListCus");
 			    dis1.forward(request,response);
 				
 			}
