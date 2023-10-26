@@ -11,7 +11,74 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     padding: 20px;
+    margin: 0;
+    padding: 0;
 }
+
+ .dashboard {
+	 	top: -50px;
+        display: grid;
+        background-color: #fff;
+     	position: absolute;
+    }
+
+    .sidebar {
+        height: 100%;
+        width: 150px;
+        background-color: #2c3e50;
+        color: #fff;
+        padding: 115px 20px;
+    }
+
+    .sidebar h1 {
+        font-size: 50px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .sidebar ul li {
+        margin-bottom: 120px;
+    }
+
+    .sidebar ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 18px;
+    }
+    
+     .main-content {
+        flex: 1;
+        padding: 10px 0 0 160px;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #007bff;
+        padding: 50px;
+        color: #fff;
+    }
+
+    .header-left {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header-left h1 {
+        font-size: 28px;
+        margin: 0;
+        color: #fff;
+    }
+
+    .header-left p {
+        font-size: 16px;
+    }
 
 /* Style the container for the form */
 h1 {
@@ -20,13 +87,19 @@ h1 {
     color: #333;
 }
 
+h5 {
+	 padding: 20px; 
+	 text-align: center; 
+}
+
 form {
     background-color: #ffffff;
     border: 1px solid #ccc;
     border-radius: 8px;
-    padding: 30px;
+    padding: 20px;
     max-width: 400px;
-    margin: 0 auto;
+    margin: 10px auto;
+    height: 600px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 

@@ -32,7 +32,7 @@ public class supplierUpdateServlet extends HttpServlet {
 		if(res == true){
 			request.getRequestDispatcher("supplierTableBtn.jsp").forward(request, response);
 		}else {
-			 request.getRequestDispatcher("fileHave.jsp").forward(request, response);
+			 request.getRequestDispatcher("supplierTableBtn.jsp").forward(request, response);
 		}
 		
 		

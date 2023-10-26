@@ -7,7 +7,7 @@ public abstract class AbstractSupplier implements supplier {
     private String spPhone;
     private String spCategories;
 
-    // Constructor
+    // Create overload Constructor
     public AbstractSupplier(int spId, String spName, String spEmail, String spPhone, String spCategories) {
         this.spId = spId;
         this.spName = spName;
@@ -15,6 +15,8 @@ public abstract class AbstractSupplier implements supplier {
         this.spPhone = spPhone;
         this.spCategories = spCategories;
     }
+    
+    //creating getters and setters
 
 	public int getSpId() {
 		return spId;

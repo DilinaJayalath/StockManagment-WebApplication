@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	 <title>Stock Managemnt </title>
+	 <title>Stock Management </title>
 	 <link rel="icon" type="image/png" href="css/logo.png">
 	<link rel="stylesheet" href="css/stockDetails.css">
 	<script src="https://kit.fontawesome.com/9e8c18e993.js" crossorigin="anonymous"></script>
