@@ -16,15 +16,19 @@ public class CartDeleteServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		int no = Integer.parseInt(request.getParameter("spNo"));
+		int cus_id = Integer.parseInt(request.getParameter("cusId"));
+		String itemCode = request.getParameter("itemcode");
 
-		boolean res = supplierDBUtill.deleteSupplier(no);
+		
+		
+		System.out.println(cus_id+itemCode);
+		boolean res = customerDBUtill.deleteItem(cus_id,itemCode);
 			
 			
 			if(res == true){
-				request.getRequestDispatcher("supplierTableBtn.jsp").forward(request, response);
+				request.getRequestDispatcher("cartTableServlet").forward(request, response);
 			}else {
-				 request.getRequestDispatcher("fileHave.jsp").forward(request, response);
+				 request.getRequestDispatcher("d.jsp").forward(request, response);
 			}
 			
 		

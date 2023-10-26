@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import stock.manager.Items;
 
@@ -28,6 +29,17 @@ public class cartTableServlet extends HttpServlet {
 
 		List<Items> ItemsList = customerDBUtill.returnCartData(cusId);
 		
+		double sum=0;
+		int qty=0;
+		for (Items items : ItemsList) {
+			
+			sum += Double.parseDouble(items.getItemPrice());
+			qty = items.getItemQuantity();
+			
+		}
+		sum = sum * qty;
+		HttpSession session = request.getSession(true);
+		session.setAttribute("sum", sum);
         request.setAttribute("cardDetails", ItemsList);
         request.getRequestDispatcher("itemCart.jsp").forward(request, response);
 		

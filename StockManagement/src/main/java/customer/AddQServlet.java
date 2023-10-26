@@ -28,12 +28,12 @@ public class AddQServlet extends HttpServlet {
 		
 
 		
-		boolean res = customerDBUtill.addProduct(cus_id, itemQuantity,itemCode);
+		boolean res = customerDBUtill.addProduct(cus_id, itemCode, itemQuantity);
 		
 
 		
 		if(res == true){
-			request.getRequestDispatcher("itemCart.jsp").forward(request, response);
+			request.getRequestDispatcher("cartTableServlet").forward(request, response);
 		}else {
 			 request.getRequestDispatcher("d.jsp").forward(request, response);
 		}

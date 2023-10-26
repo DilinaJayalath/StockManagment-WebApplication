@@ -16,6 +16,7 @@
 
 <% 
     int cusId = (Integer) session.getAttribute("cusId");
+	double sum = (Double) session.getAttribute("sum");
   
 %>
        
@@ -26,46 +27,53 @@
                 <tr>
                     <th>Item Name</th>
                     <th>Price</th>
-                    <th>Stock Quantity</th>
+                    <th>Item Quantity</th>
+                  
                 </tr>
             </thead>
             <tbody>
-                  <c:forEach var="item" items="${cardDetails}">
                         
-              <%--          
-                           <p> ${item.itemNo}
-                            ${item.itemName}
-                            ${item.itemCode}
-                            <img src ="images/${item.itemPhoto}" alt="photo" width=100px;>
-                            ${item.itemQuantity}
-                            ${item.itemPrice}</p>
-                          --%>
+                  <c:forEach var="item" items="${cardDetails}">
 
-
-
-            
                 <tr>
-                    <td>${item.itemCode}</td>
                     <td>${item.itemName}</td>
                     <td>${item.itemPrice}</td>
+                    
              
                      
-                     <form action ="/StockManagement/AddQServlet" method ="post"> <input type ="hidden" name = "cusId" value="<%=cusId%>"> 
+                     <form action ="/StockManagement/AddQServlet" method ="post"> 
                      
+                     <input type ="hidden" name = "cusId" value="<%=cusId%>"> 
                      <input type ="hidden" name ="itemcode" value ="${item.itemCode}"> 
-                     <td> <input type="text" name = "qty" value ="${item.itemQuantity}"></td> 
+                     
+                     <td> <input type="number" name = "qty" value ="${item.itemQuantity}"></td> 
                      
                      <td><input type = "submit" value = "Additem"></td>
                      
                      </form>
                       
                       
-                    
-                    <td><input type = "submit" value = "Delete"></td>
+                      
+                      
+                                           
+                     <form action ="/StockManagement/CartDeleteServlet" method ="post"> 
+                     
+                     <input type ="hidden" name = "cusId" value="<%=cusId%>"> 
+                     <input type ="hidden" name ="itemcode" value ="${item.itemCode}"> 
+            
+                     <td><input type = "submit" value = "Delete"></td>
+                     
+                     </form>
+               
                 </tr>
             
  </c:forEach>               
-                
+                <td> Total </td>
+                <td> <%=sum%> </td>
+                <td></td>
+                <td></td>
+                <td><a href ="C_Payment.jsp"> <input type = "submit" value = "Buy Now!"> </a></td>
+
             </tbody>
         </table>
     </div>

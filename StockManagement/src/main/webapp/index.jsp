@@ -15,39 +15,7 @@
 </head>
 <body>
 
-
-                <div class="nav container">
-  <div class = "imgL"><a href = "index.php"><p> Onlineshoppingmall</p><img src="photos/LOGO SHOP 1.png" width="150px" height = "150px"> </a> </div>
-                    <i class='bx bx-shopping-bag' id = "cart-icon"></i> 
-                
-                    <div class="cart">
-                        <h2 class="cart-title">Your Cart</h2>
-        
-                        <div class="cart-content">
-         
-                        </div>
-                        
-                        
-        <form action="abc.jsp" method="post">
-        
-                        <div class="total">
-                            <div class="total-title">Total</div>
-                      
-                        <input class="total-price" name = "abc" value = 0.00> 
-                        </div>
-        
-        				
-                        <button type="submit" class="btn-buy">Buy Now </a></button>
-                        <i class='bx bx-x' id = "close-cart" ></i>
-                        
-                        </form>  
-                        
-                        
-                    </div>
-                </div>
-                
-          
-                        
+<%@ include file="header.jsp" %>
 
 <% 
     int cusId = (Integer) session.getAttribute("cusId");
@@ -56,7 +24,7 @@
                 
 
        <section class="shop container">
-        <h2 class="section-title">CLOTHING</h2>
+        <h2 class="section-title">I PHONE SHOP</h2>
         <div class="shop-content">
       <c:forEach var="item" items="${itemListCus}">
                         
@@ -96,7 +64,7 @@
         
         <form action="/StockManagement/cartTableServlet" method ="post">
       <input type="hidden" name = "cusId" value="<%=cusId%>">
-      <button type= "submit"> sdfghj</button>
+      <button type= "submit" name ="cartT"> <p>GO TO CART</p> </button>
     </form>
     </section>
 

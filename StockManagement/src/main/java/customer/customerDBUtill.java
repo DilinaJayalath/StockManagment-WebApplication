@@ -179,7 +179,7 @@ public static boolean addProduct(int cus_id,String itemCode , String itemQuantit
 			con = DBConnect.getCon();
 			stmt = con.createStatement();
 
-			String sql1 = "update buy_products set itemQuantity = '"+itemQuantity+"' ";
+			String sql1 = "update buy_products set itemQuantity = '"+itemQuantity+"' where itemCode='"+itemCode+"' and cus_id = '"+cus_id+"'";
 			
 			//String sql2 = "update items set itemQuantity = '"+itemQuantity+"' ";
 			
@@ -207,7 +207,7 @@ public static boolean addProduct(int cus_id,String itemCode , String itemQuantit
 
 
 
-public static boolean deleteSupplier( int cusId, String itemCode ) {
+public static boolean deleteItem( int cusId, String itemCode ) {
 
 	boolean isSuccess = false;
 	
@@ -215,7 +215,7 @@ public static boolean deleteSupplier( int cusId, String itemCode ) {
 	con = DBConnect.getCon();
 	stmt = con.createStatement();
 
-	String sql = "DELETE FROM buy_products WHERE cusId = "+cusId+" and itemCode = "+itemCode+"";
+	String sql = "DELETE FROM buy_products WHERE cus_id = "+cusId+" and itemCode = '"+itemCode+"'";
 
 	int ret = stmt.executeUpdate(sql);
 	
