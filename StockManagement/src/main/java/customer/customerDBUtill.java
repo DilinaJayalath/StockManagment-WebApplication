@@ -168,8 +168,71 @@ public class customerDBUtill {
 
 		
 	}
+	
+	
+	
+public static boolean addProduct(int cus_id,String itemCode , String itemQuantity) {
+		
+		boolean isSuccess = false;
+		
+		try {
+			con = DBConnect.getCon();
+			stmt = con.createStatement();
+
+			String sql1 = "update buy_products set itemQuantity = '"+itemQuantity+"' ";
+			
+			//String sql2 = "update items set itemQuantity = '"+itemQuantity+"' ";
+			
+			
+ 
+			int ret1 = stmt.executeUpdate(sql1);
+			
+			if (ret1 > 0) {
+				isSuccess = true;
+			}else {
+				isSuccess = false;
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return isSuccess;
+
+						
+	}
+	
 
 
+
+
+public static boolean deleteSupplier( int cusId, String itemCode ) {
+
+	boolean isSuccess = false;
+	
+	try {
+	con = DBConnect.getCon();
+	stmt = con.createStatement();
+
+	String sql = "DELETE FROM buy_products WHERE cusId = "+cusId+" and itemCode = "+itemCode+"";
+
+	int ret = stmt.executeUpdate(sql);
+	
+	if (ret > 0) {
+		isSuccess = true;
+	}else {
+		isSuccess = false;
+	}
+	
+	
+} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
+return isSuccess;
+	
+}
 
 	
 	

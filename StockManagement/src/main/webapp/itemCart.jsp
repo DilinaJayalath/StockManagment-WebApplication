@@ -8,12 +8,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Item Table</title>
-    <link rel="stylesheet" href="item_table.css">
+     <link rel="stylesheet" href ="css/1.css" >
 </head>
 
 <body>
 
 
+<% 
+    int cusId = (Integer) session.getAttribute("cusId");
+  
+%>
+       
 
     <div class="table-container">
         <table class="item-table">
@@ -43,7 +48,20 @@
                     <td>${item.itemCode}</td>
                     <td>${item.itemName}</td>
                     <td>${item.itemPrice}</td>
-                    <td>${item.itemQuantity}</td>
+             
+                     
+                     <form action ="/StockManagement/AddQServlet" method ="post"> <input type ="hidden" name = "cusId" value="<%=cusId%>"> 
+                     
+                     <input type ="hidden" name ="itemcode" value ="${item.itemCode}"> 
+                     <td> <input type="text" name = "qty" value ="${item.itemQuantity}"></td> 
+                     
+                     <td><input type = "submit" value = "Additem"></td>
+                     
+                     </form>
+                      
+                      
+                    
+                    <td><input type = "submit" value = "Delete"></td>
                 </tr>
             
  </c:forEach>               

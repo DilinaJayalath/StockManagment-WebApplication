@@ -111,6 +111,16 @@ version="3.1">
 
 
 
+	<servlet>
+		<servlet-name>qty</servlet-name>
+		<servlet-class>customer.AddQServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+			<servlet-name>qty</servlet-name>
+		<url-pattern>/qty</url-pattern>
+	</servlet-mapping>
+
 
 </web-app>
 

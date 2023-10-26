@@ -1,0 +1,63 @@
+/* Reset some default styles */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a background color for the page */
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the container for the table */
+.table-container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the table */
+.item-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px;
+}
+
+.item-table th, .item-table td {
+    padding: 10px;
+    text-align: left;
+}
+
+.item-table th {
+    background-color: #333;
+    color: #fff;
+}
+
+.item-table td {
+    border-bottom: 1px solid #ccc;
+}
+
+/* Style table rows */
+.item-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Style table rows on hover */
+.item-table tr:hover {
+    background-color: #ddd;
+}
+
+/* Style the "Delete" and "Add Item" buttons */
+input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #555;
+}
