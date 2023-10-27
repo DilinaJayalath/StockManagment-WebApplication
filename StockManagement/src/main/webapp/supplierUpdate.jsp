@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,6 +17,8 @@
 	</head>
 
 <body>
+
+
 	<%
 		int no = Integer.parseInt(request.getParameter("no"));
 		String name = request.getParameter("name");
@@ -36,8 +39,12 @@
 		</div>
 
 		<div class="main-content">
+		
+		
+		
+		<!-- Creating details form -->
+			<form action="/StockManagement/supplierUpdateServlet" method="post" onsubmit="return validateForm()">
 
-			<form action="/StockManagement/supplierUpdateServlet" method="post">
 
 
 					<label for="itemName">Supplier ID:</label> 
@@ -47,20 +54,28 @@
 					<input type="text"name="spName" value="<%=name%>" required> 
 					
 					<label for="itemCode">Supplier Email:</label> 
-					<input type="email"name="spEmail" value="<%=email%>" required> 
-					
+					<input type="text"name="spEmail" id="email" value="<%=email%>" required> 
+					<span id="emailError" style="color: red;"></span><br><br>
+					        
 					<label for="itemQuantity">Supplier Phone:</label> 
-					<input type="number" name="spPhone" value="<%=phone%>" required> 
-					
+					<input type="number" name="spPhone" id="phone" value="<%=phone%>" required> 
+                    <span id="phoneError" style="color: red;"></span><br><br>	
+                    
 					<label for="itemQuantity">Supplier categories:</label> 
 					<input type="text" name=spCategories value="<%=categories%>" required>
 
 
+
+
+			<!-- Creating cancel and update button -->
 				<button type="button" class="btn btn-cancel" data-toggle="modal" data-target="#cancelModal">Cancel</button>
 				<button type="submit" class="btn btn-update" data-toggle="modal" data-target="#cancelModal">Update</button>
+		
 			</form>
 
-			<!-- Cancel Modal -->
+
+
+			<!-- Creating Cancel pop-up -->
 			<div class="modal fade" id="cancelModal" tabindex="-1" role="dialog" aria-labelledby="cancelModalLabel" aria-hidden="true">
 				
 				<div class="modal-dialog" role="document">
@@ -75,6 +90,7 @@
 							</button>
 				
 						</div>
+						
 					
 						<div class="modal-body">Are you sure you want to cancel the update?</div>
 					
@@ -83,6 +99,8 @@
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
 							<a href="supplierTableBtn.jsp" class="btn btn-danger">Yes, Cancel</a>
 						
+						
+						
 						</div>
 					</div>
 				</div>
@@ -90,7 +108,54 @@
 		</div>
 
 	</div>
+ 
+ 
+ <!-- validate supplier data -->
+ <script>
+ 
+        function validateForm() {
+        	
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
 
+            
+            
+            // Validate email (checking if the email has @ sign)
+            if (!email.includes('@')) {
+                
+            	document.getElementById("emailError").innerText = "Email must contain '@' symbol.";
+               
+                return false; // Prevent form submission
+                 
+                
+            } else {
+            	
+                document.getElementById("emailError").innerText = "";
+            }
+
+            
+            
+            
+            // Validate phone number (checking if the phone number has 10 integers)
+            if (!/^\d{10}$/.test(phone)) {
+               
+            	document.getElementById("phoneError").innerText = "Phone number must have 10 integers.";
+             
+            	return false; // Prevent form submission
+            	
+            	
+            } else {
+            	
+                document.getElementById("phoneError").innerText = "";
+            }
+
+            return true; // Form is valid
+        }
+        
+        
+    </script>
+    
+    
 </body>
 	
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

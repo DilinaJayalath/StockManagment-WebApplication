@@ -19,6 +19,9 @@
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+
+<!-- Creating side-bar -->
+
     <div class="dashboard">
         <div class="sidebar">
             <ul>
@@ -33,85 +36,99 @@
 String saveUname = (String) session.getAttribute("saveUname");
 %>       
        
-        <div class="main-content">
-            
-            <header>
-                <div class="header-left">
-                    <h1>Supplier Management</h1>
-                    <p>Welcome, <%= saveUname %></p>
-          
-                </div>
-                
-                <div class="header-right">
-                   <a href="addSupplier.jsp"> <button  class="add-button">Add Supplier</button></a>
-                </div>
-            
-            </header>
+   <div class="main-content">
            
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Contact</th>
-                        <th>Categories</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
+            
+            
+       <header>
+           <div class="header-left">
+                <h1>Supplier Management</h1>
+                <p>Welcome, <%= saveUname %></p>
+          
+           </div>
                 
-                <tbody>
-                    <c:forEach var="item" items="${itemList}">
-                        <tr>
-							<td>${item.spId}</td>
-                            <td>${item.spName}</td>
-                            <td>${item.spEmail}</td>
-                            <td>${item.spPhone}</td>
-                            <td>${item.spCategories}</td>
-                            <td class="actions">
+           <div class="header-right">
+                <a href="addSupplier.jsp"> <button  class="add-button">Add Supplier</button></a>
+           </div>
+            
+       </header>
+        
+        
+           
+       <table>
+       
+           <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Categories</th>
+                    <th>Actions</th>
+                </tr>
+           </thead>
+              
+                
+           <tbody>
+                    
+              <c:forEach var="item" items="${itemList}">
+                 <tr>
+					 <td>${item.spId}</td>
+                     <td>${item.spName}</td>
+                     <td>${item.spEmail}</td>
+                     <td>${item.spPhone}</td>
+                     <td>${item.spCategories}</td>
+                    
+                    
+                    
+                    <!-- Creating Delete pop-up -->
+                     <td class="actions">
                                 
-                            <a href="supplierUpdate.jsp?&no=${item.spId}&name=${item.spName}&email=${item.spEmail}&phone=${item.spPhone}&categories=${item.spCategories}" class="action-button">Edit</a>
+                         <a href="supplierUpdate.jsp?&no=${item.spId}&name=${item.spName}&email=${item.spEmail}&phone=${item.spPhone}&categories=${item.spCategories}" class="action-button">Edit</a>
                                 
-                            <button class="action-button delete" data-toggle="modal" data-target="#deleteModal${item.spId}">Delete</button>
+                         <button class="action-button delete" data-toggle="modal" data-target="#deleteModal${item.spId}">Delete</button>
                        
-                               <div class="modal fade" id="deleteModal${item.spId}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
+                         <div class="modal fade" id="deleteModal${item.spId}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                   
+                              <div class="modal-dialog" role="document">
+                                   
+                                   <div class="modal-content">
+                                           
+                                       <div class="modal-header">
                                                 
-                                                <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
+                                           <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
                                                 
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                                 </button>
                                             
-                                            </div>
+                                       </div>
                                             
-                                            <div class="modal-body">
-                                                Are you sure you want to delete this item?
-                                            </div>
                                             
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                       <div class="modal-body"> Are you sure you want to delete this item? </div>
+                                            
+                                       <div class="modal-footer">
+                                           
+                                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                                                 
-                                                <form action="/StockManagement/supplierDeleteServlet" method="post">
+                                               <form action="/StockManagement/supplierDeleteServlet" method="post">
                                                     <input type="hidden" name="spNo" value="${item.spId}" />
                                                     <button type="submit" class="btn btn-danger">Delete</button>
                                                 
-                                                </form>
-                                            </div>
-                                        </div>
+                                                
+                                                
+                                                
+                                               </form>
+                                       </div>
                                     </div>
                                 </div>
-                                
-                                
-                                
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-        </div>
+                         </div>       
+                      </td>
+                   </tr>
+              </c:forEach>
+            </tbody>
+         </table>
+       </div>
     </div>
 
 </body>

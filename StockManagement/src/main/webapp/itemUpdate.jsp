@@ -28,8 +28,8 @@
     <input type="text" name="itemCode" value="<%= code%>" required>
     <label for="itemQuantity">Item Quantity:</label>
     <input type="number" name="itemQuantity"  id="task" class="form-control" value="<%= qty%>" required>
-        <label for="itemPrice">Item Price:</label>
-    <input type="number" name="itemPrice" id="task" value="<%= price%>" required>
+        <label for="eprice">Item Price:</label>
+    <input type="number" name="itemPrice" id="eprice" value="<%= price%>" class="form-control" required>
     
     
     <div class="form-group">
@@ -60,17 +60,24 @@
 		});
     
 	
-    function validateForm() {
-        var quantity = document.getElementById("task").value;
+		 function validateForm() {
+		        var quantity = document.getElementById("task").value;
+		        var price = parseFloat(document.getElementById("eprice").value);
 
-        // Check if quantity is not empty and is a positive number
-        if (quantity === "" || isNaN(quantity) || parseFloat(quantity) <= 0) {
-            alert("Quantity must be a positive number.");
-            return false; // Prevent form submission
-        }
+		        // Check if quantity is not empty and is a positive number
+		        if (quantity === "" || isNaN(quantity) || parseFloat(quantity) <= 0) {
+		            alert("Quantity must be a positive number.");
+		            return false; // Prevent form submission
+		        }
+		        
+		        if (isNaN(price) || price <= 0) {
+		        	 alert("Price must be a positive number.");
+		            return false; // Prevent form submission
+		        }  
+		        
 
-        return true; // Form is valid
-    }
+		        return true; // Form is valid
+		    }
 </script>
 
 <!-- Cancel Modal -->

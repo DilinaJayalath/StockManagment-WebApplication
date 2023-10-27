@@ -62,9 +62,9 @@
         <input type="file" name="itemPhoto" id="eimage" class="form-control" required>
     </div>
     
-    <div class="form-group">
-            <label for="eid">Item Price</label>
-            <input type="number" name="itemPrice" id="task" class="form-control" required>
+       <div class="form-group">
+            <label for="eprice">Item Price</label>
+            <input type="number" name="itemPrice" id="eprice" class="form-control" required>
         </div>
         
         <div class="form-group">
@@ -78,15 +78,27 @@
     <script>
     function validateForm() {
         var quantity = document.getElementById("task").value;
+        var price = parseFloat(document.getElementById("eprice").value);
 
         // Check if quantity is not empty and is a positive number
         if (quantity === "" || isNaN(quantity) || parseFloat(quantity) <= 0) {
             alert("Quantity must be a positive number.");
             return false; // Prevent form submission
         }
+        
+        if (isNaN(price) || price <= 0) {
+        	 alert("Price must be a positive number.");
+            return false; // Prevent form submission
+        } else {
+            document.getElementById("priceError").innerText = "";
+        }
+        
+        
 
         return true; // Form is valid
     }
+
+    
 </script>
 
 

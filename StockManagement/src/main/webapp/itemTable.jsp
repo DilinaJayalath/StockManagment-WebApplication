@@ -34,7 +34,7 @@
                             <td>${item.itemCode}</td>
                             <td> <img src="images/${item.itemPhoto}" alt="photo" width=100px;></td>
                             <td>${item.itemQuantity}</td>
-                            <td>${item.itemPrice}</td>
+                            <td>Rs.${item.itemPrice}</td>
                             <td class="actions">
                                 <a href="itemUpdate.jsp?num=${item.itemNo}&name=${item.itemName}&code=${item.itemCode}&qty=${item.itemQuantity}&photo=${item.itemPhoto}&price=${item.itemPrice}" class="action-button">Edit</a>
                                

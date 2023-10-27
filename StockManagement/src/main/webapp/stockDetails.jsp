@@ -47,7 +47,7 @@
       </div>
       <div class="dropdown">
       	<h4 class = "logo-text2">   <p>Welcome, <%= saveUname %></p></h4>
-        <button class="signup">Super Admin</button>
+        <button class="signup">S_Manager</button>
         <div class="dropdown-content">
         <a href="profilesetting.php" target="iframe_a">Change Profile</a>
         <a href="logout">Logout</a>

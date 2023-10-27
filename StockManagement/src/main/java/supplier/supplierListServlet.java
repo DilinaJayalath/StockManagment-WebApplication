@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class supplierListServlet
  */
 @WebServlet("/supplierListServlet")
+
+
 public class supplierListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -23,6 +25,7 @@ public class supplierListServlet extends HttpServlet {
 		List<supplier> supplierList = supplierDBUtill.returnAllData();
 		
         request.setAttribute("itemList", supplierList);
+        
         request.getRequestDispatcher("supplierTable.jsp").forward(request, response);
     
 

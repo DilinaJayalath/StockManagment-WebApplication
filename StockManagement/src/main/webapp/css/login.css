@@ -8,7 +8,7 @@
 
 }
 body {
-    background-color: silver;
+	background-image:url("logo1.jpg");
     height: 100vh;
     display: flex;
     background-repeat: no-repeat;

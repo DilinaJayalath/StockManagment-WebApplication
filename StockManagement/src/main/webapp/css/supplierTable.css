@@ -74,7 +74,7 @@
     }
 
     .header-right button {
-        background-color: #007bff;
+        background-color: rgb(0, 84, 176);
         color: #fff;
         border: none;
         padding: 10px 20px;
@@ -84,7 +84,7 @@
     }
 
     .header-right button:hover {
-        background-color: #0056b3;
+        background-color: rgb(51, 148, 255);
     }
 
     table {
@@ -104,7 +104,7 @@
     }
 
     .add-button {
-        background-color: #007bff;
+        background-color: rgb(0, 128, 128);
         color: #fff;
         border: none;
         padding: 12px 24px;
@@ -113,7 +113,7 @@
     }
 
     .add-button:hover {
-        background-color: #0056b3;
+        background-color: rgb(0, 128, 128);
     }
     
      .table tbody tr:nth-child(even) {
@@ -133,7 +133,7 @@
         margin: 5px;
         padding: 5px 10px;
         text-align: center;
-        background-color: #007bff;
+        background-color: rgb(28, 157, 13);
         color: #fff;
         border: none;
         cursor: pointer;
@@ -150,6 +150,6 @@
      }
       
       .modal-header {
-         background-color: #007bff;
+         background-color: rgb(28, 157, 13);
          color: #fff;
         }
